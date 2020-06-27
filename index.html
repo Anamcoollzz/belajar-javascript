@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IndDev Belajar Javascript</title>
+    <!-- <script defer src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
+</head>
+
+<body>
+    <h1 id="halo" class="halo-sore" data-toggle="sore">
+        Aris
+    </h1>
+    <h2 id="halo2" class="halo-sore" data-toggle="sore">
+        Nyonya
+    </h2>
+    <form action="" id="form-uji-coba">
+        <input type="text" id="name" name="nama_depan" placeholder="input">
+        <br>
+        <br>
+        <select name="jenis_kelamin" id="jenis_kelamin">
+            <option value="L">Laki-laki</option>
+            <option value="P">Perempuan</option>
+        </select>
+        <button id="kirim">Kirim</button>
+    </form>
+
+    <div id="pilihanNominal" style="display: block;">
+        <h1>Halo</h1>
+    </div>
+
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
+    <script>
+        // $('h1').html('Halo selamat sore')
+        // $('#halo').html('aros')
+        // $('.halo-sore').html('aros')
+        // $('[data-toggle="sore"]')
+
+        // event di input
+        // var $name = $('#name').on('keydown', function(e) {
+        //     // alert('aku keydown')
+        //     if (e.key == 'Tab') {
+        //         e.preventDefault()
+        //     }
+        //     if (e.key == 'a') {
+        //         e.preventDefault()
+        //     }
+        // })
+        // $('#name').on('keypress', function(e) {
+        //     // alert('aku keypress')
+        // })
+        // $('#name').on('change', function(e) {
+        //         // alert('aku keypress')
+        //         // console.log($(this).val())
+        //     })
+        //     // $('#name').on('keyup', function(e) {
+        //     //     // alert('aku keyup')
+        //     //     // console.log($(this).val())
+        //     //     console.log(e)
+        //     //     console.log(e.keyCode)
+        //     //     var name = $(this).val()
+        //     //     var number_string = name
+        //     //     var sisa = number_string.length % 3
+        //     //     var rupiah = number_string.substr(0, sisa)
+        //     //     var ribuan = number_string.substr(sisa).match(/\d{3}/g)
+
+        // //     if (ribuan) {
+        // //         separator = sisa ? '.' : '';
+        // //         rupiah += separator + ribuan.join('.');
+        // //     }
+        // //     // var rupiah = formatRupiah(name, "Rp. ")
+        // //     $(this).val(rupiah)
+        // //     if (name == 'admin') {
+        // //         alert('anda berhasil login')
+        // //     }
+        // // })
+
+        // /* Fungsi formatRupiah */
+        // function formatRupiah(angka, prefix) {
+        //     var number_string = angka.replace(/[^,\d]/g, '').toString(),
+        //         split = number_string.split(','),
+        //         sisa = split[0].length % 3,
+        //         rupiah = split[0].substr(0, sisa),
+        //         ribuan = split[0].substr(sisa).match(/\d{3}/gi);
+
+        //     // tambahkan titik jika yang di input sudah menjadi angka ribuan
+        //     if (ribuan) {
+        //         separator = sisa ? '.' : '';
+        //         rupiah += separator + ribuan.join('.');
+        //     }
+
+        //     rupiah = split[1] != undefined ? rupiah + ',' + split[1] : rupiah;
+        //     return prefix == undefined ? rupiah : (rupiah ? 'Rp. ' + rupiah : '');
+        // }
+
+        // // event di select 
+        // $('#jenis_kelamin').on('change', function(e) {
+        //     // alert('aku select onchange')
+        //     // console.log(e)
+        //     var jenisKelaminSelected = $(this).val()
+        //     console.log(jenisKelaminSelected)
+        //     if (jenisKelaminSelected == 'L') {
+        //         // $('#pilihanNominal').show()
+        //         // $('#pilihanNominal').css({
+        //         //     display: 'block',
+        //         //     backgroundColor: 'red'
+        //         // })
+        //         // $('#pilihanNominal').fadeIn()
+        //         // $('#name').val('L')
+        //     } else {
+        //         // $('#pilihanNominal').hide()
+        //         // $('#pilihanNominal').css({
+        //         //     // display: 'none',
+        //         //     backgroundColor: 'yellow'
+        //         // })
+        //         // $('#name').val('P')
+        //         // $('#pilihanNominal').fadeOut()
+        //     }
+        // })
+
+        // $('#kirim').on('click', function(e) {
+        //     // e.preventDefault()
+        //     $(this).html('simpan')
+        // })
+
+        // $('#form-uji-coba').on('submit', function(e) {
+        //     e.preventDefault()
+        //     alert('aku submit')
+        // })
+
+
+
+        // VANILLA
+        var nameVanilla = document.getElementById('name')
+        console.log(nameVanilla)
+        nameVanilla.addEventListener('keyup', function(e) {
+                console.log(e)
+                console.log(e.keyCode)
+                var name = this.value
+                var number_string = name
+                var sisa = number_string.length % 3
+                var rupiah = number_string.substr(0, sisa)
+                var ribuan = number_string.substr(sisa).match(/\d{3}/g)
+
+                if (ribuan) {
+                    separator = sisa ? '.' : '';
+                    rupiah += separator + ribuan.join('.');
+                }
+                // var rupiah = formatRupiah(name, "Rp. ")
+                this.value = rupiah
+                if (name == 'admin') {
+                    alert('anda berhasil login')
+                }
+            })
+            // document.getElementById()
+            // document.getElementsByClassName()
+            // document.getElementsByTagName()
+            // document.getElementsByName()
+        var nameVanilla2 = document.getElementsByClassName('name')
+        console.log(nameVanilla2)
+
+        var haloSore = document.getElementsByClassName('halo-sore')[1]
+        haloSore.innerHTML = 'aros'
+            // document.getElementById('halo').innerHTML = 'aros'
+    </script>
+</body>
+
+</html>
